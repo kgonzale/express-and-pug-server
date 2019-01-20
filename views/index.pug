@@ -1,8 +1,18 @@
 html
   head
     title= title
+    script(src="https://unpkg.com/moment@2.23.0/min/moment.min.js")
+    script(src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js")
+
   body
     h1= name
-    h1= currenttime
+    div(id='lame')
     h1= test
     h1= address
+    h1= sys
+
+  script.
+      setInterval(() => { 
+      let currentTime = moment().format("MMMM Do YYYY, h:mm:ss a"); 
+        $('#lame').html(`<h1 class="time-header">${currentTime}</h1>`)
+      }, 1000)
