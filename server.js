@@ -8,20 +8,21 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-const fs = require("fs");
 
-var ip = require("ip");
+const fs = require("fs");
+const ip = require("ip");
+
 app.set("view engine", "pug");
 app.set("views", "./views");
 
 app.get("/", (req, res) => {
-  let uptime = require("os").uptime();
+  // let uptime = require("os").uptime();
   let ipaddress = ip.address();
 
   res.render("index", {
-    title: "project 1",
+    title: "Project 1 - BBB Server",
     name: "Kevin Gonzalez",
-    test: uptime,
+    // test: uptime,
     address: ipaddress
   });
 });
