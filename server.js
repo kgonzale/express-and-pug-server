@@ -23,6 +23,17 @@ app.get("/", async (req, res) => {
   let publicIP = await publicIp.v4();
   let localIP = address.ip();
 
+  function getSysUptime() {
+    return parseFloat(
+      fs
+        .readFileSync("/proc/uptime", {
+          encoding: "utf8"
+        })
+        .split(" ")[0]
+    );
+  }
+  console.log(getSysUptime());
+
   res.render("index", {
     title: "Project 1 - BBB Server",
     name: "Kevin Gonzalez",
