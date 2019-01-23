@@ -1,18 +1,19 @@
 html
   head
     title= title
-    script(src="https://unpkg.com/moment@2.23.0/min/moment.min.js")
-    script(src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js")
+    //- script(src="https://unpkg.com/moment@2.23.0/min/moment.min.js")
+    //- script(src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js")
 
   body
     h1= name
-    div(id='lame')
+    h1= currentTime
+    //- div(id='lame')
     //- h1= test
-    h1= address
-    h1= sys
+    h1= local
+    h1= public
 
-  script.
-      setInterval(() => { 
-      let currentTime = moment().format("MMMM Do YYYY, h:mm:ss a"); 
-        $('#lame').html(`<h1 class="time-header">${currentTime}</h1>`)
-      }, 1000)
+  //- script.
+  //-     setInterval(() => { 
+  //-     let currentTime = moment().format("MMMM Do YYYY, h:mm:ss a"); 
+  //-       $('#lame').html(`<h1 class="time-header">${currentTime}</h1>`)
+  //-     }, 1000)

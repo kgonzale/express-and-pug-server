@@ -10,20 +10,25 @@ const app = express();
 const port = 3000;
 
 const fs = require("fs");
-const ip = require("ip");
+const moment = require("moment");
+const publicIp = require("public-ip");
+const address = require("address");
 
 app.set("view engine", "pug");
 app.set("views", "./views");
 
-app.get("/", (req, res) => {
-  // let uptime = require("os").uptime();
-  let ipaddress = ip.address();
+app.get("/", async (req, res) => {
+  let time = moment().format("MMMM Do YYYY, h:mm a");
+
+  let publicIP = await publicIp.v4();
+  let localIP = address.ip();
 
   res.render("index", {
     title: "Project 1 - BBB Server",
     name: "Kevin Gonzalez",
-    // test: uptime,
-    address: ipaddress
+    currentTime: time,
+    local: localIP,
+    public: publicIP
   });
 });
 
