@@ -23,23 +23,16 @@ app.get("/", async (req, res) => {
   let publicIP = await publicIp.v4();
   let localIP = address.ip();
 
-  function getSysUptime() {
-    return parseFloat(
-      fs
-        .readFileSync("/proc/uptime", {
-          encoding: "utf8"
-        })
-        .split(" ")[0]
-    );
-  }
-  console.log(getSysUptime());
+  const uptime = fs.readFileSync("/proc/uptime", "utf8").split(" ")[0];
+  const formattedTime = moment.utc(uptime * 1000).format("HH:mm:ss");
 
   res.render("index", {
     title: "Project 1 - BBB Server",
     name: "Kevin Gonzalez",
     currentTime: time,
     local: localIP,
-    public: publicIP
+    public: publicIP,
+    serverUptime: formattedTime
   });
 });
 
