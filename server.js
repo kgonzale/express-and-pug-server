@@ -7,7 +7,7 @@
 
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 80;
 
 const fs = require("fs");
 const moment = require("moment");
@@ -30,9 +30,9 @@ app.get("/", async (req, res) => {
     title: "Project 1 - BBB Server",
     name: "Kevin Gonzalez",
     currentTime: time,
+    serverUptime: formattedTime,
     local: localIP,
-    public: publicIP,
-    serverUptime: formattedTime
+    public: publicIP
   });
 });
 
